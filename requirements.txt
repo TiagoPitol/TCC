@@ -8,3 +8,4 @@ matplotlib
 scikit-learn
 logging
 openpyxl
+kaleido
