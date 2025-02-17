@@ -9,3 +9,4 @@ scikit-learn
 logging
 openpyxl
 kaleido
+base64
