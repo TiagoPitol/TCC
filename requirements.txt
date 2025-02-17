@@ -10,4 +10,3 @@ logging
 openpyxl
 kaleido
 os
-base64
