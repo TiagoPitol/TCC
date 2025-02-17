@@ -7,9 +7,59 @@ from sklearn.preprocessing import StandardScaler
 import tensorflow as tf
 import os
 import base64
-
+import requests
+from io import BytesIO
+from PIL import Image
 st.set_page_config(layout="wide")
 # Aplica o tema claro manualmente
+st.markdown(
+    """
+    <style>
+        body {
+            background-color: white !important;
+            color: black !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <style>
+        /* Fundo principal (modo Light padrão) */
+        .stApp {
+            background-color: #FFFFFF !important;
+        }
+
+        /* Texto padrão */
+        h1, h2, h3, h4, h5, h6, p, label, div {
+            color: #000000 !important;
+        }
+
+        /* Fundo da Sidebar */
+        [data-testid="stSidebar"] {
+            background-color: #9AD6CC !important;
+        }
+
+        /* Botões e elementos interativos */
+        .stButton>button {
+            background-color: #FFFFFF !important;
+            color: #FFFFFF !important;
+            border: 1px solid #CCCCCC !important;
+        }
+
+        .reportview-container {
+            background-color: #fFfffF;
+        }
+        /* Alteração de links */
+        a {
+            color: #1E70BF !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 def CriarGraficos(fig, graph_num):
     # Cria o diretório 'images' se ele não existir
@@ -558,11 +608,17 @@ if dados is None:
     st.warning("Por favor, carregue um arquivo Excel para continuar.")
 
 
-image_path = r"C:\Users\LAPES\Downloads\LogoLAPES1.png"
+#image_path = r"C:\Users\LAPES\Downloads\LogoLAPES1.png"
 
 # Converter a imagem para base64
-with open(image_path, "rb") as img_file:
-    encoded_string = base64.b64encode(img_file.read()).decode()
+#with open(image_path, "rb") as img_file:
+  #  encoded_string = base64.b64encode(img_file.read()).decode()
+image_url = "https://raw.githubusercontent.com/TiagoPitol/TCC/main/LogoLAPES1.png"
+
+# Baixar a imagem do GitHub
+response = requests.get(image_url)
+encoded_string = base64.b64encode(response.content).decode()
+
 
 # Exibir a imagem no canto inferior direito, sobre os demais elementos
 st.markdown(
@@ -578,6 +634,8 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
 
 st.markdown(
     """
