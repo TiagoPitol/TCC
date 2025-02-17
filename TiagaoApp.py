@@ -608,11 +608,7 @@ if dados is None:
     st.warning("Por favor, carregue um arquivo Excel para continuar.")
 
 
-#image_path = r"C:\Users\LAPES\Downloads\LogoLAPES1.png"
 
-# Converter a imagem para base64
-#with open(image_path, "rb") as img_file:
-  #  encoded_string = base64.b64encode(img_file.read()).decode()
 image_url = "https://raw.githubusercontent.com/TiagoPitol/TCC/main/LogoLAPES1.png"
 
 # Baixar a imagem do GitHub
